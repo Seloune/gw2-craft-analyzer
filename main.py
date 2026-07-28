@@ -1,10 +1,12 @@
 #========================================
 # Craft Analyzer Guild Wars 2
 # main.py
-# version 0.3
+# version 0.4
 #========================================
 
 from functions.api import recuperer_objet, recuperer_prix
+
+from functions.formate import formater_prix
 
 separateur = "--------------------------------------------------------------"
 
@@ -16,13 +18,17 @@ def main():
 
     if objet is not None:
         print(separateur)
-        print(objet["name"])
+        print(f"Nom de l'objet : {objet['name']}")
 
         objet_prix = recuperer_prix(id_objet)
 
         if objet_prix is not None:
-            print(f"Prix d'achat : {objet_prix['buys']['unit_price']}")
-            print(f"Prix de vente : {objet_prix['sells']['unit_price']}")
+            objet_prix_achat = objet_prix['buys']['unit_price']
+            objet_prix_vente = objet_prix['sells']['unit_price']
+
+            print(f"Prix d'achat   : {formater_prix(objet_prix_achat)}")
+            print(f"Prix de vente  : {formater_prix(objet_prix_vente)}")
+
         else:
             print("Prix indisponible.")
 
@@ -36,3 +42,92 @@ if __name__ == "__main__":
     main()
 
 print("")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

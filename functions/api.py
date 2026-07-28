@@ -1,7 +1,7 @@
 #========================================
 # Craft Analyzer Guild Wars 2
 # api.py
-# version 0.3
+# version 0.4
 #========================================
 
 import requests
@@ -24,3 +24,50 @@ def recuperer_prix(id_objet):
         return reponse.json()
 
     return None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

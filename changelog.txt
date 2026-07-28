@@ -23,3 +23,57 @@ Version 0.3 - 29/07/2026
 - Récupération des prix d'achat et de vente via l'API Commerce.
 - Affichage des prix dans main.py.
 - Optimisation : la requête des prix n'est effectuée que si l'objet existe.
+
+Version 0.4 - 29/07/2026
+------------------------
+
+- Ajout de la fonction formater_prix() dans formate.py.
+- Conversion des montants en cuivre au format monnaie Guild Wars 2 (po / pa / pc).
+- Prise en charge des montants négatifs.
+- Affichage des prix d'achat et de vente au format GW2 dans main.py.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

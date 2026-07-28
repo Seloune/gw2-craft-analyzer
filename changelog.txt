@@ -5,4 +5,13 @@ Changelog
 
 Version 0.1 - 28/07/2026
 ------------------------
+
 - Initialisation du projet et première saisie utilisateur
+
+Version 0.2 - 28/07/2026
+------------------------
+
+- Ajout de la communication avec l'API Guild Wars 2.
+- Récupération des informations d'un objet à partir de son ID.
+- Affichage du nom de l'objet en français.
+- Gestion des erreurs lorsque l'objet est introuvable.

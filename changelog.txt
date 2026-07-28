@@ -1,0 +1,8 @@
+========================================
+Craft Analyzer Guild Wars 2
+Changelog
+========================================
+
+Version 0.1 - 28/07/2026
+------------------------
+- Initialisation du projet et première saisie utilisateur

@@ -15,3 +15,11 @@ Version 0.2 - 28/07/2026
 - Récupération des informations d'un objet à partir de son ID.
 - Affichage du nom de l'objet en français.
 - Gestion des erreurs lorsque l'objet est introuvable.
+
+Version 0.3 - 29/07/2026
+------------------------
+
+- Ajout de la fonction recuperer_prix() dans api.py.
+- Récupération des prix d'achat et de vente via l'API Commerce.
+- Affichage des prix dans main.py.
+- Optimisation : la requête des prix n'est effectuée que si l'objet existe.

@@ -32,6 +32,15 @@ Version 0.4 - 29/07/2026
 - Prise en charge des montants négatifs.
 - Affichage des prix d'achat et de vente au format GW2 dans main.py.
 
+Version 0.5 - 29/07/2026
+------------------------
+
+- Ajout de la fonction rechercher_recette() dans api.py.
+- Vérification de l'existence d'une recette produisant l'objet recherché.
+- Détermination et affichage de l'état craftable de l'objet.
+- Distinction entre un objet non craftable et une erreur lors de la requête API.
+- Centralisation du numéro de version dans le fichier __init__.py à la racine.
+- Suppression du numéro de version dans les en-têtes de chaque fichier.
 
 
 

@@ -1,10 +1,9 @@
 #========================================
 # Craft Analyzer Guild Wars 2
 # main.py
-# version 0.4
 #========================================
 
-from functions.api import recuperer_objet, recuperer_prix
+from functions.api import recuperer_objet, recuperer_prix, rechercher_recette
 
 from functions.formate import formater_prix
 
@@ -32,16 +31,29 @@ def main():
         else:
             print("Prix indisponible.")
 
+        recette_objet = rechercher_recette(objet['id'])
+
+        if recette_objet is not None:
+            if not recette_objet:
+                print("Craftable : non")
+            else:
+                print("Craftable : oui")
+
+        else:
+            print("Recette introuvable ou erreur lors de la requête.")
+
         print(separateur)
 
     else:
-        print("Objet introuvable ou erreur lors de la requête.")
+        print("Objet introuvable ou erreur lors de la requête.")    
 
 
 if __name__ == "__main__":
     main()
 
 print("")
+
+
 
 
 

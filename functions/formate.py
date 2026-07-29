@@ -1,7 +1,6 @@
 #========================================
 # Craft Analyzer Guild Wars 2
 # formate.py
-# version 0.4
 #========================================
 
 def formater_prix(prix_cuivre):

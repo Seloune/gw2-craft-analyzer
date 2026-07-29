@@ -62,7 +62,14 @@ Version 0.7 - 29/07/2026
 - Affichage du nom et de la quantité de chaque ingrédient.
 - Optimisation des requêtes API grâce à la récupération multiple des objets.
 
+Version 0.71 - 30/07/2026
+------------------------
 
+- Création du fichier affichage.py.
+- Ajout de la fonction afficher_infos_recette() dans affichage.py.
+- Ajout de la fonction afficher_ingredients() dans affichage.py.
+- Déplacement de l'affichage des informations de la recette et des ingrédients depuis main.py vers affichage.py.
+- Simplification de main.py grâce à la séparation de l'affichage et de l'orchestration.
 
 
 

@@ -3,6 +3,7 @@
 # main.py
 #========================================
 
+
 from functions.api import(
     recuperer_objet, 
     recuperer_prix, 
@@ -10,7 +11,9 @@ from functions.api import(
     recuperer_recette
 )
 
-from functions.formate import formater_prix, formater_discipline
+from functions.formate import formater_prix
+
+from functions.affichage import afficher_infos_recette, afficher_ingredients
 
 separateur = "--------------------------------------------------------------"
 
@@ -46,51 +49,33 @@ def main():
             else:
                 print("Craftable : oui")
                 print(separateur)
-        
+
                 recette_id = recette_objet[0]
                 recette = recuperer_recette(recette_id)
         
                 if recette is not None:
-                    print(f"Quantité produite : {recette['output_item_count']}")
-        
-                    disciplines_formatees = formater_discipline(
-                        recette["disciplines"]
-                    )
-        
-                    print("Disciplines requises :")
-        
-                    for discipline in disciplines_formatees:
-                        print(f"- {discipline} {recette['min_rating']}")
+                    afficher_infos_recette(recette)      
         
                     liste_ids_ingredients = []
         
                     for ingredient_recette in recette["ingredients"]:
-                        liste_ids_ingredients.append(
-                            ingredient_recette["item_id"]
-                        )
+                        liste_ids_ingredients.append(ingredient_recette["item_id"])
         
-                    liste_ingredients = recuperer_objet(
-                        liste_ids_ingredients
-                    )
+                    liste_ingredients = recuperer_objet(liste_ids_ingredients)
+
+                    if liste_ingredients is not None:
         
-                    for ingredient_recette in recette["ingredients"]:
-                        for ingredient in liste_ingredients:
-                            if (
-                                ingredient["id"]
-                                == ingredient_recette["item_id"]
-                            ):
-                                print(
-                                    f"{ingredient['name']} "
-                                    f"x {ingredient_recette['count']}"
-                                )
-        
+                        afficher_ingredients(recette, liste_ingredients)
+
+                    else:
+                        print("Impossible de récupérer la liste des ingrédients.")
+
                 else:
-                    print(
-                        "Recette non récupérée ou erreur lors de la requête."
-                    )
+                    print("Recette non récupérée ou erreur lors de la requête.")
         
         else:
             print("Recette introuvable ou erreur lors de la requête.")
+
     else:
         print("Objet introuvable ou erreur lors de la requête.")    
 

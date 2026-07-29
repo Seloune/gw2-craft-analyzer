@@ -40,7 +40,17 @@ Version 0.5 - 29/07/2026
 - Détermination et affichage de l'état craftable de l'objet.
 - Distinction entre un objet non craftable et une erreur lors de la requête API.
 - Centralisation du numéro de version dans le fichier __init__.py à la racine.
-- Suppression du numéro de version dans les en-têtes de chaque fichier.
+
+Version 0.6 - 29/07/2026
+------------------------
+
+- Ajout de la fonction recuperer_recette() dans api.py.
+- Récupération des informations détaillées d'une recette via l'API.
+- Affichage de la quantité produite par la recette.
+- Affichage des disciplines de craft requises.
+- Affichage du niveau minimal des disciplines requises.
+- Ajout de la fonction formater_discipline() dans formate.py.
+- Traduction des disciplines de craft en français.
 
 
 

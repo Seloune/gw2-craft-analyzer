@@ -3,9 +3,16 @@
 # main.py
 #========================================
 
-from functions.api import recuperer_objet, recuperer_prix, rechercher_recette
+import json
 
-from functions.formate import formater_prix
+from functions.api import(
+    recuperer_objet, 
+    recuperer_prix, 
+    rechercher_recette,
+    recuperer_recette
+)
+
+from functions.formate import formater_prix, formater_discipline
 
 separateur = "--------------------------------------------------------------"
 
@@ -36,14 +43,41 @@ def main():
         if recette_objet is not None:
             if not recette_objet:
                 print("Craftable : non")
+                print(separateur)
             else:
                 print("Craftable : oui")
+                print(separateur)
+
+                # Récupération de la 1ère recette trouvée
+                recette_id = recette_objet[0]
+
+                recette = recuperer_recette(recette_id)
+
+#            if recette is not None:
+#                # Recette test : 19783 - Inscription sur bois vert vitale
+#                print(recette)
+#                print(f"Quantité produite : {recette['output_item_count']}")
+#                print(f"Discipline (niveau) : {formater_discipline(recette['disciplines'][0])} ({recette['min_rating']})")
+#            else:
+#                print("Recette non récupérée ou erreur lors de la requête.")
+
+            if recette is not None:
+                # Recette test : 19783 - Inscription sur bois vert vitale
+                print(f"Quantité produite : {recette['output_item_count']}")
+                #print(f"Discipline (niveau) : {formater_discipline(recette['disciplines'][0])} ({recette['min_rating']})")
+                
+                disciplines_formatees = formater_discipline(recette['disciplines'])
+
+                print("Disciplines requises : ")
+                for discipline in disciplines_formatees:
+                    print(f"- {discipline} {recette['min_rating']}")
+                
+            else:
+                print("Recette non récupérée ou erreur lors de la requête.")
 
         else:
             print("Recette introuvable ou erreur lors de la requête.")
-
-        print(separateur)
-
+            
     else:
         print("Objet introuvable ou erreur lors de la requête.")    
 

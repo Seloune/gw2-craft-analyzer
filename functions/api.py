@@ -33,6 +33,16 @@ def rechercher_recette(id_objet):
 
     return None
 
+def recuperer_recette(id_recette):
+    url = f"https://api.guildwars2.com/v2/recipes/{id_recette}?lang=fr"
+    reponse = requests.get(url, timeout=5)
+
+    if reponse.status_code == 200:
+        return reponse.json()
+
+    return None
+
+
 
 
 

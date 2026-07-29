@@ -29,6 +29,64 @@ def formater_prix(prix_cuivre):
 def formater_pourcentage(valeur):
     return f"{valeur:.2f} %"
 
+#def formater_discipline(discipline):
+#
+#    traductions = {
+#        "Huntsman": "Chasseur",
+#        "Artificer": "Artificier",
+#        "Armorsmith": "Forgeron d'armures",
+#        "Weaponsmith": "Forgeron d'armes",
+#        "Jeweler": "Joailler",
+#        "Leatherworker": "Travailleur du cuir",
+#        "Tailor": "Tailleur",
+#        "Chef": "Chef"
+#    }
+#
+#    return(traductions.get(discipline, discipline))
+
+#def formater_discipline(disciplines):
+#
+#    liste_disciplines_formatees = []
+#
+#    for discipline in disciplines:
+#        traductions = {
+#            "Huntsman": "Chasseur",
+#            "Artificer": "Artificier",
+#            "Armorsmith": "Forgeron d'armures",
+#            "Weaponsmith": "Forgeron d'armes",
+#            "Jeweler": "Joailler",
+#            "Leatherworker": "Travailleur du cuir",
+#            "Tailor": "Tailleur",
+#            "Chef": "Chef"
+#        }
+#
+#        liste_disciplines_formatees.append(traductions.get(discipline, discipline))
+#
+#    return liste_disciplines_formatees
+
+def formater_discipline(discipline):
+
+    liste_disciplines_formatees = []
+
+    traductions = {
+    "Huntsman": "Chasseur",
+    "Artificer": "Artificier",
+    "Armorsmith": "Forgeron d'armures",
+    "Weaponsmith": "Forgeron d'armes",
+    "Jeweler": "Joailler",
+    "Leatherworker": "Travailleur du cuir",
+    "Tailor": "Tailleur",
+    "Chef": "Chef"
+}
+
+    if isinstance(discipline, list):
+        for discipline_api in discipline:
+         liste_disciplines_formatees.append(traductions.get(discipline_api, discipline_api))
+        return liste_disciplines_formatees
+    else:
+        return(traductions.get(discipline, discipline)) 
+
+
 
 
 

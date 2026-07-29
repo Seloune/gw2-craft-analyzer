@@ -3,6 +3,7 @@
 # formate.py
 #========================================
 
+
 def formater_prix(prix_cuivre):
 
     # Mémorise le signe avant de travailler sur une valeur positive
@@ -19,50 +20,19 @@ def formater_prix(prix_cuivre):
 
     if piece_or == 0 and piece_argent > 0:
         monnaie_gw2 = f"{piece_argent} pa {piece_cuivre} pc"
+
     elif piece_or == 0 and piece_argent == 0:
         monnaie_gw2 = f"{piece_cuivre} pc"
+        
     else:
         monnaie_gw2 = f"{piece_or} po {piece_argent} pa {piece_cuivre} pc"
 
     return signe + monnaie_gw2
 
+
 def formater_pourcentage(valeur):
     return f"{valeur:.2f} %"
 
-#def formater_discipline(discipline):
-#
-#    traductions = {
-#        "Huntsman": "Chasseur",
-#        "Artificer": "Artificier",
-#        "Armorsmith": "Forgeron d'armures",
-#        "Weaponsmith": "Forgeron d'armes",
-#        "Jeweler": "Joailler",
-#        "Leatherworker": "Travailleur du cuir",
-#        "Tailor": "Tailleur",
-#        "Chef": "Chef"
-#    }
-#
-#    return(traductions.get(discipline, discipline))
-
-#def formater_discipline(disciplines):
-#
-#    liste_disciplines_formatees = []
-#
-#    for discipline in disciplines:
-#        traductions = {
-#            "Huntsman": "Chasseur",
-#            "Artificer": "Artificier",
-#            "Armorsmith": "Forgeron d'armures",
-#            "Weaponsmith": "Forgeron d'armes",
-#            "Jeweler": "Joailler",
-#            "Leatherworker": "Travailleur du cuir",
-#            "Tailor": "Tailleur",
-#            "Chef": "Chef"
-#        }
-#
-#        liste_disciplines_formatees.append(traductions.get(discipline, discipline))
-#
-#    return liste_disciplines_formatees
 
 def formater_discipline(discipline):
 
@@ -83,6 +53,7 @@ def formater_discipline(discipline):
         for discipline_api in discipline:
          liste_disciplines_formatees.append(traductions.get(discipline_api, discipline_api))
         return liste_disciplines_formatees
+    
     else:
         return(traductions.get(discipline, discipline)) 
 

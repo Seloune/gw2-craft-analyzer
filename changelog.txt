@@ -52,6 +52,16 @@ Version 0.6 - 29/07/2026
 - Ajout de la fonction formater_discipline() dans formate.py.
 - Traduction des disciplines de craft en français.
 
+Version 0.7 - 29/07/2026
+------------------------
+
+- Récupération de la liste des ingrédients d'une recette.
+- Extraction des IDs des ingrédients.
+- Modification de recuperer_objet() pour accepter un ID unique ou une liste d'IDs.
+- Récupération groupée des informations des ingrédients en une seule requête API.
+- Affichage du nom et de la quantité de chaque ingrédient.
+- Optimisation des requêtes API grâce à la récupération multiple des objets.
+
 
 
 

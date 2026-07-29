@@ -3,8 +3,6 @@
 # main.py
 #========================================
 
-import json
-
 from functions.api import(
     recuperer_objet, 
     recuperer_prix, 
@@ -38,46 +36,61 @@ def main():
         else:
             print("Prix indisponible.")
 
-        recette_objet = rechercher_recette(objet['id'])
+        recette_objet = rechercher_recette(objet["id"])
 
         if recette_objet is not None:
             if not recette_objet:
                 print("Craftable : non")
                 print(separateur)
+        
             else:
                 print("Craftable : oui")
                 print(separateur)
-
-                # Récupération de la 1ère recette trouvée
+        
                 recette_id = recette_objet[0]
-
                 recette = recuperer_recette(recette_id)
-
-#            if recette is not None:
-#                # Recette test : 19783 - Inscription sur bois vert vitale
-#                print(recette)
-#                print(f"Quantité produite : {recette['output_item_count']}")
-#                print(f"Discipline (niveau) : {formater_discipline(recette['disciplines'][0])} ({recette['min_rating']})")
-#            else:
-#                print("Recette non récupérée ou erreur lors de la requête.")
-
-            if recette is not None:
-                # Recette test : 19783 - Inscription sur bois vert vitale
-                print(f"Quantité produite : {recette['output_item_count']}")
-                #print(f"Discipline (niveau) : {formater_discipline(recette['disciplines'][0])} ({recette['min_rating']})")
-                
-                disciplines_formatees = formater_discipline(recette['disciplines'])
-
-                print("Disciplines requises : ")
-                for discipline in disciplines_formatees:
-                    print(f"- {discipline} {recette['min_rating']}")
-                
-            else:
-                print("Recette non récupérée ou erreur lors de la requête.")
-
+        
+                if recette is not None:
+                    print(f"Quantité produite : {recette['output_item_count']}")
+        
+                    disciplines_formatees = formater_discipline(
+                        recette["disciplines"]
+                    )
+        
+                    print("Disciplines requises :")
+        
+                    for discipline in disciplines_formatees:
+                        print(f"- {discipline} {recette['min_rating']}")
+        
+                    liste_ids_ingredients = []
+        
+                    for ingredient_recette in recette["ingredients"]:
+                        liste_ids_ingredients.append(
+                            ingredient_recette["item_id"]
+                        )
+        
+                    liste_ingredients = recuperer_objet(
+                        liste_ids_ingredients
+                    )
+        
+                    for ingredient_recette in recette["ingredients"]:
+                        for ingredient in liste_ingredients:
+                            if (
+                                ingredient["id"]
+                                == ingredient_recette["item_id"]
+                            ):
+                                print(
+                                    f"{ingredient['name']} "
+                                    f"x {ingredient_recette['count']}"
+                                )
+        
+                else:
+                    print(
+                        "Recette non récupérée ou erreur lors de la requête."
+                    )
+        
         else:
             print("Recette introuvable ou erreur lors de la requête.")
-            
     else:
         print("Objet introuvable ou erreur lors de la requête.")    
 

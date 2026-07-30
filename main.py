@@ -62,10 +62,11 @@ def main():
                         liste_ids_ingredients.append(ingredient_recette["item_id"])
         
                     liste_ingredients = recuperer_objet(liste_ids_ingredients)
+                    prix_ingredients = recuperer_prix(liste_ids_ingredients)                  
 
                     if liste_ingredients is not None:
         
-                        afficher_ingredients(recette, liste_ingredients)
+                        afficher_ingredients(recette, liste_ingredients, prix_ingredients)
 
                     else:
                         print("Impossible de récupérer la liste des ingrédients.")

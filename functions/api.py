@@ -23,8 +23,15 @@ def recuperer_objet(id_objet):
     return None
 
 
+
 def recuperer_prix(id_objet):
-    url = f"https://api.guildwars2.com/v2/commerce/prices/{id_objet}"
+
+    if isinstance(id_objet, list):
+        liste_ids_objets = ",".join(str(identifiant) for identifiant in id_objet)
+        url = f"https://api.guildwars2.com/v2/commerce/prices?ids={liste_ids_objets}"
+
+    else:
+        url = f"https://api.guildwars2.com/v2/commerce/prices/{id_objet}"
     reponse = requests.get(url, timeout=5)
 
     if reponse.status_code == 200:

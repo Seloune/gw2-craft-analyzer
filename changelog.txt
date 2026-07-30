@@ -71,45 +71,11 @@ Version 0.71 - 30/07/2026
 - Déplacement de l'affichage des informations de la recette et des ingrédients depuis main.py vers affichage.py.
 - Simplification de main.py grâce à la séparation de l'affichage et de l'orchestration.
 
+Version 0.8 - 30/07/2026
+------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Modification de recuperer_prix() pour accepter un ID unique ou une liste d'IDs.
+- Recuperation groupee des prix des ingredients en une seule requete API.
+- Affichage du cout des ingredients avec prix formates en monnaie Guild Wars 2.
+- Affichage du prix unitaire lorsqu'un ingredient est requis en plusieurs exemplaires.
+- Ajout d'un affichage de secours lorsqu'un prix d'ingredient est indisponible.
